@@ -1,0 +1,1391 @@
+/* Основные стили для страницы Ариэль */
+:root {
+    --ocean-deep: #006994;
+    --ocean-medium: #1e90ff;
+    --ocean-light: #87ceeb;
+    --mermaid-tail: #32cd32;
+    --mermaid-tail-light: #90ee90;
+    --coral: #ff7f50;
+    --sand: #f4a460;
+    --seashell: #fff5ee;
+    --text-light: #ffffff;
+    --text-dark: #2c3e50;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.4s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(180deg, var(--ocean-light) 0%, var(--ocean-medium) 50%, var(--ocean-deep) 100%);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Шапка сайта */
+.header {
+    background: rgba(0, 105, 148, 0.9);
+    color: var(--text-light);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    transition: var(--transition);
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Навигационное меню */
+#mainNav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+#mainNav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+#mainNav a:hover {
+    color: var(--coral);
+    transform: translateY(-2px);
+}
+
+#mainNav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--coral);
+    transition: width 0.3s ease;
+}
+
+#mainNav a:hover::after {
+    width: 100%;
+}
+
+/* Бургер-меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    transition: var(--transition);
+}
+
+.burger-menu:hover span {
+    background-color: var(--coral);
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-light);
+    transition: var(--transition);
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: var(--coral);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+    background-color: var(--coral);
+}
+
+.nav-overlay {
+    display: none;
+}
+
+/* Основной контент */
+main {
+    max-width: 1200px;
+    margin: 100px auto 0;
+    padding: 2rem;
+}
+
+/* Приветственная секция */
+.welcome {
+    background: linear-gradient(rgba(0, 105, 148, 0.7), rgba(30, 144, 255, 0.7)), 
+                url('https://i.pinimg.com/736x/8c/7f/5e/8c7f5e4d8b1d7d4d1d6c4e4a4b4c4d4e.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    padding: 6rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.welcome:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.welcome h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-family: 'Cursive', sans-serif;
+    transition: var(--transition);
+}
+
+.welcome h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.welcome p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Анимация океана и пузырьков */
+.ocean-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: bubble-rise linear infinite;
+}
+
+@keyframes bubble-rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Секции принцесс */
+.princess-section {
+    background-color: var(--seashell);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    scroll-margin-top: 100px;
+}
+
+.princess-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.princess-section h2 {
+    color: var(--ocean-deep);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Cursive', sans-serif;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.princess-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ocean-deep), var(--mermaid-tail));
+    border-radius: 3px;
+}
+
+.princess-content {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.princess-image {
+    flex: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.princess-image:hover {
+    transform: scale(1.03);
+}
+
+.princess-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    max-height: 400px;
+}
+
+.princess-image:hover img {
+    transform: scale(1.1);
+}
+
+.princess-text {
+    flex: 1;
+}
+
+.princess-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.princess-text strong {
+    color: var(--ocean-deep);
+}
+
+/* Секция внешности с красивым обтекаемым изображением */
+.appearance-section {
+    background: linear-gradient(135deg, var(--seashell), #e6f7ff);
+    position: relative;
+    overflow: hidden;
+}
+
+.appearance-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(50, 205, 50, 0.1));
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.appearance-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(255, 127, 80, 0.1), rgba(135, 206, 235, 0.1));
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.appearance-content {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Красивое обтекаемое изображение Ариэль */
+.appearance-image {
+    flex: 1;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 30px rgba(0, 105, 148, 0.3),
+        0 0 0 10px rgba(255, 255, 255, 0.9),
+        0 0 0 15px rgba(30, 144, 255, 0.2);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+.appearance-image:hover {
+    transform: perspective(1000px) rotateY(0deg) translateY(-10px);
+    box-shadow: 
+        0 15px 40px rgba(0, 105, 148, 0.4),
+        0 0 0 10px rgba(255, 255, 255, 0.9),
+        0 0 0 15px rgba(30, 144, 255, 0.3),
+        0 0 30px rgba(50, 205, 50, 0.3);
+}
+
+.appearance-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 45%, 
+        rgba(30, 144, 255, 0.2) 50%, 
+        transparent 55%);
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.appearance-image:hover::before {
+    opacity: 0.9;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.appearance-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transition: transform 0.6s ease;
+    border-radius: 15px;
+    filter: saturate(1.1) contrast(1.05);
+    transform: scale(1.05);
+}
+
+.appearance-image:hover img {
+    transform: scale(1.08);
+    filter: saturate(1.2) contrast(1.1) brightness(1.05);
+}
+
+/* Декоративные элементы вокруг изображения */
+.appearance-image::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: linear-gradient(45deg, 
+        var(--ocean-light) 0%, 
+        var(--mermaid-tail-light) 25%, 
+        var(--ocean-medium) 50%, 
+        var(--mermaid-tail) 75%, 
+        var(--ocean-deep) 100%);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0.4;
+    filter: blur(10px);
+    transition: all 0.6s ease;
+}
+
+.appearance-image:hover::after {
+    opacity: 0.6;
+    filter: blur(15px);
+    transform: scale(1.02);
+}
+
+/* Декоративные ракушки */
+.appearance-image .shell-decoration {
+    position: absolute;
+    z-index: 3;
+    opacity: 0.8;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+.appearance-image .shell-1 {
+    top: -25px;
+    right: -25px;
+    width: 50px;
+    height: 50px;
+    transform: rotate(45deg);
+}
+
+.appearance-image .shell-2 {
+    bottom: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    transform: rotate(-30deg);
+}
+
+.appearance-image .shell-3 {
+    top: 50%;
+    left: -30px;
+    width: 35px;
+    height: 35px;
+    transform: rotate(15deg);
+}
+
+.appearance-image:hover .shell-decoration {
+    opacity: 1;
+    transform: scale(1.1) rotate(10deg);
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.appearance-text {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 2px rgba(30, 144, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    border-left: 5px solid var(--ocean-medium);
+}
+
+.appearance-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, 
+        var(--ocean-light), 
+        var(--mermaid-tail), 
+        var(--ocean-medium));
+}
+
+.appearance-text h3 {
+    color: var(--ocean-deep);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+    font-family: 'Cursive', sans-serif;
+}
+
+.appearance-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ocean-medium), var(--mermaid-tail));
+    border-radius: 3px;
+}
+
+.appearance-text ul {
+    list-style-type: none;
+    position: relative;
+}
+
+.appearance-text li {
+    margin-bottom: 1.2rem;
+    padding-left: 2.5rem;
+    position: relative;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    transition: transform 0.3s ease;
+}
+
+.appearance-text li:hover {
+    transform: translateX(5px);
+}
+
+.appearance-text li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, var(--ocean-medium), var(--mermaid-tail));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 105, 148, 0.3);
+}
+
+.appearance-text li:nth-child(1)::before { content: '🐚'; }
+.appearance-text li:nth-child(2)::before { content: '🧜‍♀️'; }
+.appearance-text li:nth-child(3)::before { content: '👁️'; }
+.appearance-text li:nth-child(4)::before { content: '👗'; }
+.appearance-text li:nth-child(5)::before { content: '💎'; }
+.appearance-text li:nth-child(6)::before { content: '✨'; }
+
+.appearance-text strong {
+    color: var(--ocean-deep);
+    background: linear-gradient(135deg, transparent 50%, rgba(30, 144, 255, 0.1) 50%);
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* Секция характера */
+.character-section {
+    background: linear-gradient(135deg, var(--seashell), #f0fff0);
+}
+
+.character-traits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.trait-card {
+    background: linear-gradient(135deg, white, #e6f7ff);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(135, 206, 235, 0.3);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.trait-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.trait-card i {
+    font-size: 2.5rem;
+    color: var(--ocean-medium);
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--ocean-medium), var(--mermaid-tail));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: var(--transition);
+}
+
+.trait-card:hover i {
+    transform: scale(1.2);
+}
+
+.trait-card h3 {
+    margin-bottom: 1rem;
+    color: var(--ocean-deep);
+    font-size: 1.4rem;
+}
+
+.trait-card p {
+    color: var(--text-dark);
+    line-height: 1.6;
+    flex-grow: 1;
+    font-size: 0.95rem;
+}
+
+.character-quote {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(50, 205, 50, 0.1));
+    border-radius: 15px;
+    border-left: 5px solid var(--ocean-medium);
+    position: relative;
+    transition: var(--transition);
+}
+
+.character-quote:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.character-quote::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 4rem;
+    color: var(--ocean-medium);
+    opacity: 0.3;
+    font-family: serif;
+}
+
+.character-quote blockquote {
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--ocean-deep);
+    line-height: 1.6;
+}
+
+/* Секция персонажей с эффектом переворачивания по клику */
+.characters-section {
+    background: linear-gradient(135deg, var(--seashell), #fff0f5);
+}
+
+.characters-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Стили для переворачивающихся карточек */
+.flip-card {
+    width: 100%;
+    height: 450px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, var(--ocean-light), var(--ocean-medium));
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, var(--mermaid-tail), var(--mermaid-tail-light));
+    color: var(--text-dark);
+    transform: rotateY(180deg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Улучшенные стили для изображений персонажей */
+.character-image {
+    height: 180px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-medium));
+}
+
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transition: var(--transition);
+    transform: scale(1.05);
+}
+
+/* Индивидуальная настройка масштаба для каждого персонажа */
+.flip-card[data-card="1"] .character-image img {
+    object-position: center 20%;
+    transform: scale(1.1);
+}
+
+.flip-card[data-card="2"] .character-image img {
+    object-position: center 40%;
+    transform: scale(1.15);
+}
+
+.flip-card[data-card="3"] .character-image img {
+    object-position: center 30%;
+    transform: scale(1.2);
+}
+
+.flip-card[data-card="4"] .character-image img {
+    object-position: center 20%;
+    transform: scale(1.1);
+}
+
+.flip-card[data-card="5"] .character-image img {
+    object-position: center 25%;
+    transform: scale(1.08);
+}
+
+.flip-card[data-card="6"] .character-image img {
+    object-position: center 35%;
+    transform: scale(1.12);
+}
+
+.flip-card:hover .character-image img {
+    transform: scale(1.25);
+    filter: brightness(1.1);
+}
+
+.flip-card-front h3 {
+    padding: 1rem;
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, rgba(0, 105, 148, 0.9), transparent);
+    margin: 0;
+    text-align: center;
+    flex-shrink: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.flip-card-front .card-content {
+    padding: 0 1.2rem 1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    font-size: 0.92rem;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.flip-card-front .flip-hint {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.flip-card:hover .flip-hint {
+    opacity: 1;
+}
+
+.flip-card-back h4 {
+    color: var(--ocean-deep);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--ocean-deep);
+    flex-shrink: 0;
+}
+
+.flip-card-back ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.flip-card-back li {
+    margin-bottom: 0.7rem;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+.flip-card-back li:before {
+    content: '🐬';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.9rem;
+}
+
+.flip-info {
+    font-style: italic;
+    margin-top: auto;
+    padding-top: 0.8rem;
+    border-top: 1px dashed var(--ocean-deep);
+    color: var(--ocean-deep);
+    font-size: 0.85rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Секция интересных фактов */
+.facts-section {
+    background: linear-gradient(135deg, var(--seashell), #fff8e1);
+}
+
+.facts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.fact-item {
+    display: flex;
+    gap: 1.5rem;
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    align-items: flex-start;
+    height: 100%;
+}
+
+.fact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.fact-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--ocean-medium), var(--mermaid-tail));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.fact-item:hover .fact-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.fact-content h3 {
+    margin-bottom: 0.8rem;
+    color: var(--ocean-deep);
+    font-size: 1.3rem;
+}
+
+.fact-content p {
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Секция медиа */
+.media-section {
+    background: linear-gradient(135deg, var(--seashell), #e8f4fd);
+}
+
+.media-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.media-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.media-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.media-image {
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.media-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transition: var(--transition);
+}
+
+.media-card:hover .media-image img {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+.media-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-info h3 {
+    margin-bottom: 0.8rem;
+    color: var(--ocean-deep);
+    font-size: 1.3rem;
+    transition: var(--transition);
+}
+
+.media-card:hover .media-info h3 {
+    color: var(--mermaid-tail);
+}
+
+.media-info p {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    flex-grow: 1;
+    font-size: 0.95rem;
+}
+
+.media-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: auto;
+}
+
+.media-meta i {
+    margin-right: 0.3rem;
+    color: var(--ocean-medium);
+}
+
+/* Галерея принцесс */
+.princess-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.princess-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    position: relative;
+}
+
+.princess-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.princess-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center 30%;
+    transition: var(--transition);
+}
+
+.princess-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+.princess-card figcaption {
+    padding: 1.2rem;
+    font-weight: bold;
+    color: var(--ocean-deep);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.princess-card:hover figcaption {
+    color: var(--mermaid-tail);
+}
+
+/* Кнопка прокрутки вверх */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--ocean-medium), var(--mermaid-tail));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 999;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Подвал */
+footer {
+    background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-medium));
+    color: var(--text-light);
+    padding: 3rem 2rem 1.5rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--coral);
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section ul li a:hover {
+    color: var(--coral);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+/* Анимации */
+.fade-in-up, .fade-in-left, .fade-in-right, .scale-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left {
+    transform: translateX(-50px);
+}
+
+.fade-in-right {
+    transform: translateX(50px);
+}
+
+.scale-in {
+    transform: scale(0.8);
+}
+
+.fade-in-up.animated, 
+.fade-in-left.animated, 
+.fade-in-right.animated, 
+.scale-in.animated {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 1rem;
+    }
+    
+    .logo span {
+        display: none;
+    }
+    
+    #mainNav ul {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-medium));
+        padding: 2rem;
+        z-index: 1000;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        gap: 1rem;
+    }
+    
+    #mainNav.active ul {
+        display: flex;
+    }
+    
+    .nav-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+    }
+    
+    #mainNav.active .nav-overlay {
+        display: block;
+    }
+    
+    #mainNav ul li {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    #mainNav ul li.menu-item-animated {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .burger-menu {
+        display: flex;
+    }
+    
+    main {
+        padding: 1rem;
+        margin-top: 80px;
+    }
+    
+    .welcome {
+        padding: 4rem 1rem;
+    }
+    
+    .welcome h1 {
+        font-size: 2.5rem;
+    }
+    
+    .welcome h2 {
+        font-size: 1.5rem;
+    }
+    
+    .princess-content, .appearance-content {
+        flex-direction: column;
+    }
+    
+    .character-traits, .characters-gallery, .facts-container, .media-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .princess-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .fact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .flip-card {
+        height: 420px;
+    }
+    
+    .character-image {
+        height: 150px;
+    }
+    
+    .flip-card-front h3 {
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .flip-card-back h4 {
+        font-size: 1.1rem;
+    }
+    
+    /* Настройки для мобильных устройств */
+    .flip-card[data-card="1"] .character-image img,
+    .flip-card[data-card="2"] .character-image img,
+    .flip-card[data-card="3"] .character-image img,
+    .flip-card[data-card="4"] .character-image img,
+    .flip-card[data-card="5"] .character-image img,
+    .flip-card[data-card="6"] .character-image img {
+        transform: scale(1.1);
+        object-position: center 25%;
+    }
+    
+    /* Адаптивность для секции внешности */
+    .appearance-image {
+        transform: perspective(1000px) rotateY(0deg);
+        margin-bottom: 2rem;
+    }
+    
+    .appearance-image:hover {
+        transform: perspective(1000px) rotateY(0deg) translateY(-5px);
+    }
+    
+    .appearance-text {
+        padding: 1.5rem;
+    }
+    
+    .appearance-image .shell-decoration {
+        display: none;
+    }
+    
+    .appearance-image::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .princess-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .welcome h1 {
+        font-size: 2rem;
+    }
+    
+    .princess-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .princess-section {
+        padding: 1.5rem;
+    }
+    
+    .facts-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .flip-card {
+        height: 400px;
+    }
+    
+    .character-image {
+        height: 140px;
+    }
+    
+    .appearance-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .appearance-text li {
+        font-size: 1rem;
+        padding-left: 2rem;
+    }
+}

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ариэль - Русалочка Диснея</title>
+    <link rel="icon" type="image.jpg" href="favicon.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="ariel-style.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://static.vecteezy.com/system/resources/previews/036/420/966/original/disney-princesses-logo-disney-princess-the-walt-disney-company-cinderella-minnie-mouse-mermaid-pink-free-png.png" alt="Логотип принцесс Диснея">
+                <span>Принцессы из мира Диснея</span>
+            </div>
+            
+            <!-- Навигационное меню -->
+            <nav id="mainNav">
+                <div class="nav-overlay" id="navOverlay"></div>
+                <ul>
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="index.html#princesses" class="nav-link">Принцессы</a></li>
+                    <li><a href="index.html#interesting-facts" class="nav-link">Факты</a></li>
+                    <li><a href="index.html#stats" class="nav-link">Статистика</a></li>
+                    <li><a href="index.html#map" class="nav-link">Карта</a></li>
+                    <li><a href="index.html#video" class="nav-link">Видео</a></li>
+                    <li><a href="index.html#contact-form" class="nav-link">Обратная связь</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Бургер-меню -->
+            <div class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <!-- Приветственная секция -->
+        <section id="home" class="welcome fade-in-up">
+            <div class="welcome-content">
+                <h1 class="fade-in-up">Ариэль</h1>
+                <h2 class="fade-in-up">Русалочка Диснея</h2>
+                <p class="fade-in-up">Откройте волшебный подводный мир Атлантики</p>
+            </div>
+            <div class="ocean-background" id="oceanBackground"></div>
+        </section>
+
+        <!-- Секция с краткой информацией -->
+        <section id="about" class="princess-section fade-in-up">
+            <h2 class="fade-in-up">Кто такая Ариэль?</h2>
+            <div class="princess-content">
+                <div class="princess-image fade-in-left">
+                    <img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-01/26/23/enhanced/webdr06/grid-cell-553-1422331681-0.jpg" alt="Ариэль">
+                </div>
+                <div class="princess-text fade-in-right">
+                    <p><strong>Ариэль (англ. Ariel)</strong> — главная героиня диснеевского мультфильма 1989 года «Русалочка». Она является младшей дочерью морского царя Тритона и царицы Афины, правителей подводного королевства Атлантика.</p>
+                    <p>С самого детства Ариэль испытывала непреодолимый интерес к человеческому миру, который был строго запрещен в ее подводном королевстве. Ее любопытство и мечтательность привели ее к сбору человеческих артефактов в тайном гроте.</p>
+                    <p>Ариэль известна своим прекрасным голосом, который она жертвует ради возможности стать человеком и быть с любимым принцем Эриком. Ее история — это рассказ о смелости, любви и готовности рискнуть всем ради своей мечты.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция с описанием внешности -->
+        <section id="appearance" class="princess-section fade-in-up appearance-section">
+            <h2 class="fade-in-up">Внешность Ариэль</h2>
+            <div class="appearance-content">
+                <div class="appearance-image fade-in-left">
+                    <img src="https://i.pinimg.com/736x/2c/e7/2d/2ce72d5351c5dd898957fdd4ad4ce101.jpg" alt="Внешность Ариэль" width="300">
+                </div>
+                <div class="appearance-text fade-in-right">
+                    <h3>Отличительные черты:</h3>
+                    <ul>
+                        <li><strong>Волосы:</strong> Длинные, густые, огненно-рыжие волосы — самая узнаваемая черта Ариэль</li>
+                        <li><strong>Хвост:</strong> Зеленый с бирюзовым оттенком и фиолетовыми плавниками в форме русалки</li>
+                        <li><strong>Глаза:</strong> Большие, выразительные голубые глаза, полные любопытства</li>
+                        <li><strong>На человеческих ногах:</strong> Носит элегантное бирюзовое платье без рукавов</li>
+                        <li><strong>Аксессуары:</strong> Ракушки в волосах и на лифе как символ ее морского происхождения</li>
+                        <li><strong>Особенности:</strong> Естественные веснушки на плечах, подчеркивающие ее индивидуальность</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция с описанием характера -->
+        <section id="character" class="princess-section fade-in-up character-section">
+            <h2 class="fade-in-up">Характер Ариэль</h2>
+            <div class="character-content">
+                <div class="character-traits">
+                    <div class="trait-card fade-in-up">
+                        <i class="fas fa-heart"></i>
+                        <h3>Мечтательная</h3>
+                        <p>Ариэль постоянно грезит о жизни на поверхности и создает коллекцию человеческих артефактов в своем тайном гроте, что показывает ее богатое воображение.</p>
+                    </div>
+                    <div class="trait-card fade-in-up">
+                        <i class="fas fa-star"></i>
+                        <h3>Любознательная</h3>
+                        <p>Обладает ненасытной жаждой знаний о мире людей, постоянно задает вопросы и готова рисковать ради новых открытий и приключений.</p>
+                    </div>
+                    <div class="trait-card fade-in-up">
+                        <i class="fas fa-crown"></i>
+                        <h3>Смелая</h3>
+                        <p>Готова пожертвовать своим голосом, положением и даже жизнью в океане ради своей любви и мечты, демонстрируя невероятную храбрость.</p>
+                    </div>
+                    <div class="trait-card fade-in-up">
+                        <i class="fas fa-music"></i>
+                        <h3>Творческая</h3>
+                        <p>Обладает прекрасным голосом, который восхищает всех обитателей океана. Ее музыкальный талант становится ключевым элементом истории.</p>
+                    </div>
+                </div>
+                <div class="character-quote fade-in-up">
+                    <blockquote>
+                        "Я не могу больше жить здесь, в океане. Я хочу быть там, на земле. Хочу видеть, как они ходят, хочу видеть, как они танцуют..."
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция с другими персонажами с эффектом переворачивания по клику -->
+        <section id="characters" class="princess-section fade-in-up characters-section">
+            <h2 class="fade-in-up">Другие главные персонажи</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 2rem; color: var(--ocean-deep); font-style: italic;">
+                Кликните на карточку, чтобы узнать больше о персонаже
+            </p>
+            <div class="characters-gallery">
+                <!-- Принц Эрик -->
+                <div class="flip-card fade-in-up" data-card="1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="character-image">
+                                <img src="https://i.pinimg.com/originals/82/f1/93/82f193ab2d9b39b03edf24f0b6d582de.jpg" alt="Принц Эрик">
+                            </div>
+                            <h3>Принц Эрик</h3>
+                            <div class="card-content">
+                                <p>Человеческий принц, в которого влюбляется Ариэль. Мечтает найти девушку с прекрасным голосом, который услышал во время кораблекрушения. Добрый, смелый и романтичный персонаж, который помогает Ариэль осуществить ее мечту.</p>
+                            </div>
+                            <div class="flip-hint">Кликните для подробностей</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Подробнее о Принце Эрике</h4>
+                            <ul>
+                                <li>Принц прибрежного королевства, наследник трона</li>
+                                <li>Вырос без матери, воспитан слугами Гримсби и Максом</li>
+                                <li>Страстный мечтатель и исследователь моря</li>
+                                <li>Обладает отличным музыкальным слухом и памятью</li>
+                                <li>Владелец преданной собаки по кличке Макс</li>
+                                <li>Отличный мореплаватель, капитан и навигатор</li>
+                                <li>Романтик, ищущий свою настоящую любовь</li>
+                            </ul>
+                            <div class="flip-info">Кликните, чтобы вернуться</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Себастьян -->
+                <div class="flip-card fade-in-up" data-card="2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="character-image">
+                                <img src="https://i.pinimg.com/736x/8f/e1/13/8fe1133a269e0b02678f08ea8cbf936a.jpg" alt="Себастьян">
+                            </div>
+                            <h3>Себастьян</h3>
+                            <div class="card-content">
+                                <p>Красный краб, придворный композитор и доверенный советник короля Тритона. Старается уберечь Ариэль от неприятностей, но часто оказывается в комичных ситуациях. Преданный, заботливый и мудрый друг.</p>
+                            </div>
+                            <div class="flip-hint">Кликните для подробностей</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Подробнее о Себастьяне</h4>
+                            <ul>
+                                <li>Дирижер и руководитель подводного оркестра</li>
+                                <li>Автор знаменитой песни "Under the Sea"</li>
+                                <li>Полное имя: Себастьян Тимоти Энрайт Краб</li>
+                                <li>Любит джазовую и классическую музыку</li>
+                                <li>Известен своей мудростью и практичными советами</li>
+                                <li>Часто попадает в смешные и нелепые ситуации</li>
+                                <li>Ямайский акцент добавляет ему особого шарма</li>
+                            </ul>
+                            <div class="flip-info">Кликните, чтобы вернуться</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Флаундер -->
+                <div class="flip-card fade-in-up" data-card="3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="character-image">
+                                <img src="https://avatars.mds.yandex.net/i?id=a7ecf34dcbcc7f0b7a0d090191886fbb_l-5888941-images-thumbs&n=13.jpg" alt="Флаундер">
+                            </div>
+                            <h3>Флаундер</h3>
+                            <div class="card-content">
+                                <p>Лучший друг Ариэль, маленькая желтая рыбка с голубыми полосками. Всегда сопровождает Ариэль в приключениях. Верный, преданный и иногда трусоватый, но готовый на все ради дружбы.</p>
+                            </div>
+                            <div class="flip-hint">Кликните для подробностей</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Подробнее о Флаундере</h4>
+                            <ul>
+                                <li>Лучший друг Ариэль с самого детства</li>
+                                <li>Постоянно сопровождает её в приключениях и исследованиях</li>
+                                <li>Несмотря на свой страх, всегда приходит на помощь подруге</li>
+                                <li>Обожает играть, исследовать и открывать новое</li>
+                                <li>Часто слишком осторожен и боязлив, но преодолевает страх</li>
+                                <li>Символ настоящей дружбы и преданности</li>
+                                <li>Доказывает, что даже маленькие могут быть храбрыми</li>
+                            </ul>
+                            <div class="flip-info">Кликните, чтобы вернуться</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Урсула -->
+                <div class="flip-card fade-in-up" data-card="4">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="character-image">
+                                <img src="https://imgix.bustle.com/mic/3soupgn91sc0vgrxozyxyncow3wbccsjf6z8tyr6pwhh1ieuioiqzrohbpyxvwre.jpg?w=1200&h=630&fit=crop&crop=faces&fm=jpg" alt="Урсула">
+                            </div>
+                            <h3>Урсула</h3>
+                            <div class="card-content">
+                                <p>Морская ведьма, изгнанная из королевства Тритона. Заключает с Ариэль сделку, чтобы та стала человеком. Коварная, могущественная и главный антагонист фильма. Специализируется на магических сделках.</p>
+                            </div>
+                            <div class="flip-hint">Кликните для подробностей</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Подробнее об Урсуле</h4>
+                            <ul>
+                                <li>Бывшая правительница Атлантики, сестра короля Тритона</li>
+                                <li>Изгнана за использование черной магии и злых чар</li>
+                                <li>Специализируется на магических сделках и контрактах</li>
+                                <li>Живет в скрытой пещере с помощниками-угрями Флоцшам и Джетшам</li>
+                                <li>Обладает магическим раковинным амулетом, хранящим голоса</li>
+                                <li>Мастер манипуляции, использует чужие желания против них</li>
+                                <li>В конечном итоге побеждена принцем Эриком</li>
+                            </ul>
+                            <div class="flip-info">Кликните, чтобы вернуться</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Царь Тритон -->
+                <div class="flip-card fade-in-up" data-card="5">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="character-image">
+                                <img src="https://avatars.mds.yandex.net/i?id=efecd0d58d650b797e1eb6f9abd8208f_l-12371092-images-thumbs&n=13.jpg" alt="Царь Тритон">
+                            </div>
+                            <h3>Царь Тритон</h3>
+                            <div class="card-content">
+                                <p>Могущественный правитель подводного королевства Атлантика, отец Ариэль и её шести старших сестёр. Известен своим властным характером и заботой о дочерях. Обладает магическим трезубцем.</p>
+                            </div>
+                            <div class="flip-hint">Кликните для подробностей</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Подробнее о Царе Тритоне</h4>
+                            <ul>
+                                <li>Правитель могущественного подводного царства Атлантика</li>
+                                <li>Отец семи дочерей-русалок, самая младшая — Ариэль</li>
+                                <li>Владеет магическим трезубцем огромной силы</li>
+                                <li>После трагической смерти жены Афины стал чрезмерно строгим отцом</li>
+                                <li>Очень переживает за безопасность дочерей, особенно Ариэль</li>
+                                <li>В конце понимает свои ошибки и отпускает Ариэль к её счастью</li>
+                                <li>Символизирует родительскую любовь и защиту</li>
+                            </ul>
+                            <div class="flip-info">Кликните, чтобы вернуться</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Королева Афина -->
+                <div class="flip-card fade-in-up" data-card="6">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="character-image">
+                                <img src="https://avatars.mds.yandex.net/i?id=0840ab07f39eba357b4d0d04c880594f_l-4350902-images-thumbs&n=13.jpg" alt="Королева Афина">
+                            </div>
+                            <h3>Королева Афина</h3>
+                            <div class="card-content">
+                                <p>Мать Ариэль, супруга короля Тритона. Добрая и музыкальная королева, трагически погибшая, защищая маленькую Ариэль. Её память объясняет строгие законы Тритона и вдохновляет дочь.</p>
+                            </div>
+                            <div class="flip-hint">Кликните для подробностей</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Подробнее о Королеве Афине</h4>
+                            <ul>
+                                <li>Мать Ариэль и её шести старших сестер</li>
+                                <li>Погибла, защищая маленькую Ариэль от пиратов</li>
+                                <li>Обладала прекрасным, завораживающим голосом</li>
+                                <li>Страстно любила музыку, пение и человеческую культуру</li>
+                                <li>Подарила Ариэль музыкальную шкатулку, ставшую семейной реликвией</li>
+                                <li>Её память объединяет семью и объясняет поведение Тритона</li>
+                                <li>Наследие Афины живет в любви Ариэль к музыке и людям</li>
+                            </ul>
+                            <div class="flip-info">Кликните, чтобы вернуться</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="instructions" style="text-align: center; margin-top: 2rem; color: var(--ocean-deep); font-size: 0.9rem;">
+                <i class="fas fa-mouse-pointer"></i> Кликайте на карточки, чтобы перевернуть их и узнать больше о персонажах
+            </div>
+        </section>
+
+        <!-- Секция с интересными фактами -->
+        <section id="facts" class="princess-section fade-in-up facts-section">
+            <h2 class="fade-in-up">Интересные факты об Ариэль</h2>
+            <div class="facts-container">
+                <div class="fact-item fade-in-up">
+                    <div class="fact-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="fact-content">
+                        <h3>Голос Ариэль</h3>
+                        <p>Джоди Бенсон, актриса озвучивания Ариэль, забеременела во время записи саундтрека. Она была на шестом месяце беременности, когда записывала "Part of Your World".</p>
+                    </div>
+                </div>
+                <div class="fact-item fade-in-up">
+                    <div class="fact-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="fact-content">
+                        <h3>Визуальное вдохновение</h3>
+                        <p>Дизайн Ариэль был основан на внешности актрисы Алиссы Милано и модели Шерри Стоуни. Аниматоры изучали их движения и выражения лица для создания персонажа.</p>
+                    </div>
+                </div>
+                <div class="fact-item fade-in-up">
+                    <div class="fact-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="fact-content">
+                        <h3>Технические инновации</h3>
+                        <p>"Русалочка" стала первым мультфильмом Диснея, использовавшим систему анимации CAPS (Computer Animation Production System) для создания сложных сцен.</p>
+                    </div>
+                </div>
+                <div class="fact-item fade-in-up">
+                    <div class="fact-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="fact-content">
+                        <h3>Музыкальные награды</h3>
+                        <p>Фильм получил два "Оскара" за лучшую оригинальную песню ("Under the Sea") и лучший саундтрек. Песня "Under the Sea" также получила премию Грэмми.</p>
+                    </div>
+                </div>
+                <div class="fact-item fade-in-up">
+                    <div class="fact-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <div class="fact-content">
+                        <h3>Изменение концовки</h3>
+                        <p>В отличие от оригинальной сказки Андерсена, где русалочка превращается в морскую пену, Дисней создал счастливый финал, где Ариэль остается с принцем Эриком.</p>
+                    </div>
+                </div>
+                <div class="fact-item fade-in-up">
+                    <div class="fact-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <div class="fact-content">
+                        <h3>Бродвейская адаптация</h3>
+                        <p>Мюзикл "Русалочка" дебютировал на Бродвее в 2007 году. Для постановки были созданы специальные костмумы и хореография, имитирующие плавание.</p>
+                    </div>
+                </div>
+                <div class="fact-item fade-in-up">
+                    <div class="fact-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="fact-content">
+                        <h3>Цветовая палитра</h3>
+                        <p>Изначально хвост Ариэль должен был быть перламутровым, но в итоге выбрали зеленый, чтобы он лучше контрастировал с ее рыжими волосами под водой.</p>
+                    </div>
+                </div>
+                <div class="fact-item fade-in-up">
+                    <div class="fact-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="fact-content">
+                        <h3>Музыкальное наследие</h3>
+                        <p>Песня "Part of Your World" почти была вырезана из фильма после негативных реакций на тестовых показах, но режиссеры отстояли ее, и теперь это одна из самых любимых песен Диснея.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция с фильмами и мультфильмами -->
+        <section id="media" class="princess-section fade-in-up media-section">
+            <h2 class="fade-in-up">Фильмы и мультфильмы с Ариэль</h2>
+            <div class="media-container">
+                <div class="media-card fade-in-up">
+                    <div class="media-image">
+                        <img src="https://i.pinimg.com/originals/5c/49/80/5c4980f5364a6fdec858f37f0dab0c71.jpg" alt="Русалочка (1989)">
+                    </div>
+                    <div class="media-info">
+                        <h3>Русалочка (1989)</h3>
+                        <p>Классический анимационный фильм Диснея, рассказывающий историю любви между русалкой Ариэль и принцем Эриком. Фильм возродил золотую эру анимации Диснея.</p>
+                        <div class="media-meta">
+                            <span><i class="fas fa-clock"></i> 83 мин.</span>
+                            <span><i class="fas fa-star"></i> 7.6/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-card fade-in-up">
+                    <div class="media-image">
+                        <img src="https://resizer.mail.ru/p/645d9f02-91f4-5f9a-a211-6453fd2564d6/AQAC9uEH2itu0FgHBS1tHE2UF8dKsC7t659yaUEeHqPQQLW_8ilxP6xu4nqcjbjHDS0bokzPaq6rYxx2Pz5arOCwtPs.jpg" alt="Русалочка 2: Возвращение в море">
+                    </div>
+                    <div class="media-info">
+                        <h3>Русалочка 2: Возвращение в море (2000)</h3>
+                        <p>Прямое продолжение истории, где Ариэль должна защитить свою дочь Мелоди и помочь ей найти своё место между миром людей и океаном.</p>
+                        <div class="media-meta">
+                            <span><i class="fas fa-clock"></i> 75 мин.</span>
+                            <span><i class="fas fa-star"></i> 5.8/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-card fade-in-up">
+                    <div class="media-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/ru/e/e0/The_Little_Mermaid_3.jpg" alt="Русалочка: Начало истории Ариэль">
+                    </div>
+                    <div class="media-info">
+                        <h3>Русалочка: Начало истории Ариэль (2008)</h3>
+                        <p>Приквел, раскрывающий ранние годы Ариэль и её первую встречу с принцем Эриком до событий оригинального фильма.</p>
+                        <div class="media-meta">
+                            <span><i class="fas fa-clock"></i> 77 мин.</span>
+                            <span><i class="fas fa-star"></i> 6.1/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-card fade-in-up">
+                    <div class="media-image">
+                        <img src="https://avatars.mds.yandex.net/i?id=dc567caf56f960b3f9dd8b2cb5cfa664_l-11846685-images-thumbs&n=13.jpg" alt="Русалочка (2023)">
+                    </div>
+                    <div class="media-info">
+                        <h3>Русалочка (2023)</h3>
+                        <p>Игровое переосмысление классической истории с Холли Бэйли в роли Ариэль. Фильм сочетает в себе живые съёмки и передовую компьютерную графику.</p>
+                        <div class="media-meta">
+                            <span><i class="fas fa-clock"></i> 135 мин.</span>
+                            <span><i class="fas fa-star"></i> 7.0/10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция с другими принцессами -->
+        <section id="princesses" class="princess-section fade-in-up">
+            <h2 class="fade-in-up">Другие принцессы Диснея</h2>
+            <div class="princess-gallery">
+                <!-- Белоснежка -->
+                <figure class="princess-card scale-in">
+                    <a href="snowwhite.html">
+                        <img src="https://i.pinimg.com/736x/da/3e/ca/da3ecaaeb539bba53da1db7a617495f0.jpg" alt="Белоснежка">
+                    </a>
+                    <figcaption>Белоснежка</figcaption>
+                </figure>
+
+                <!-- Золушка -->
+                <figure class="princess-card scale-in">
+                    <a href="cinderella.html">
+                        <img src="https://i.pinimg.com/originals/15/5e/9b/155e9bc360aa75c075e9da81c4b50195.jpg" alt="Золушка">
+                    </a>
+                    <figcaption>Золушка</figcaption>
+                </figure>
+
+                <!-- Аврора -->
+                <figure class="princess-card scale-in">
+                    <a href="auroraP.html">
+                        <img src="https://i.pinimg.com/736x/b2/31/ef/b231ef2800180668f589f5037628d428.jpg" alt="Аврора">
+                    </a>
+                    <figcaption>Аврора</figcaption>
+                </figure>
+                
+                <!-- Белль -->
+                <figure class="princess-card scale-in">
+                    <a href="belle.html">
+                        <img src="https://www.nicepng.com/png/detail/195-1957533_belle-disney-belle-party-invitations.png" alt="Белль">
+                    </a>
+                    <figcaption>Белль</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <!-- Кнопка для прокрутки вверх -->
+    <button class="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <p>© 2025 Мир Диснеевских Принцесс. Все права защищены.</p>
+        <address id="contact">
+            Разработчик: <strong>Елизавета Адамович</strong><br>
+            Email: <a href="mailto:adalizik@gmail.com">adalizik@gmail.com</a><br>
+            Телефон: <a href="tel:+79661280283">+7 (966)128-02-83</a><br>
+        </address>
+    </footer>
+
+    <script>
+        // Основные функции
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function smoothScrollTo(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Анимация элементов при скролле
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                    rect.bottom >= 0
+                );
+            }
+
+            function handleScrollAnimation() {
+                const elements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in');
+                
+                elements.forEach(element => {
+                    if (isElementInViewport(element)) {
+                        element.classList.add('animated');
+                    }
+                });
+
+                const scrollButton = document.querySelector('.scroll-to-top');
+                if (window.pageYOffset > 300) {
+                    scrollButton.classList.add('visible');
+                } else {
+                    scrollButton.classList.remove('visible');
+                }
+            }
+
+            // Функция для переворота карточек
+            function setupFlipCards() {
+                const flipCards = document.querySelectorAll('.flip-card');
+                
+                flipCards.forEach(card => {
+                    card.addEventListener('click', function(e) {
+                        // Останавливаем всплытие события
+                        e.stopPropagation();
+                        
+                        // Переворачиваем карточку
+                        this.classList.toggle('flipped');
+                    });
+                });
+                
+                // Закрытие карточек при клике вне карточки
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.flip-card')) {
+                        flipCards.forEach(card => {
+                            card.classList.remove('flipped');
+                        });
+                    }
+                });
+            }
+
+            // Бургер-меню
+            const burgerMenu = document.getElementById('burgerMenu');
+            const mainNav = document.getElementById('mainNav');
+            const navOverlay = document.getElementById('navOverlay');
+            const body = document.body;
+
+            function toggleMenu() {
+                burgerMenu.classList.toggle('active');
+                mainNav.classList.toggle('active');
+                body.classList.toggle('menu-open');
+                
+                if (mainNav.classList.contains('active')) {
+                    const navItems = document.querySelectorAll('#mainNav ul li');
+                    navItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('menu-item-animated');
+                        }, index * 100);
+                    });
+                }
+            }
+
+            // Навигационные ссылки
+// Навигационные ссылки
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Проверяем, это якорная ссылка (#) или ссылка на другую страницу
+                    if (href.startsWith('#')) {
+                        // Для якорных ссылок - плавный скролл и предотвращаем переход
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        
+                        if (window.innerWidth <= 768) {
+                            toggleMenu();
+                        }
+                        
+                        smoothScrollTo(targetId);
+                    }
+                    // Если это ссылка на index.html или другую страницу - 
+                    // НЕ вызываем e.preventDefault() - позволяем браузеру перейти
+                    // Закрываем меню если нужно
+                    else if (href.includes('.html')) {
+                        if (window.innerWidth <= 768) {
+                            toggleMenu();
+                        }
+                        // НЕ e.preventDefault() - браузер сам перейдет по ссылке!
+                    }
+                });
+            });
+            // Анимация пузырьков в океане
+            function createBubbles() {
+                const oceanBackground = document.getElementById('oceanBackground');
+                if (oceanBackground) {
+                    oceanBackground.innerHTML = '';
+                    
+                    for (let i = 0; i < 15; i++) {
+                        const bubble = document.createElement('div');
+                        bubble.classList.add('bubble');
+                        bubble.style.left = `${Math.random() * 100}%`;
+                        bubble.style.width = `${Math.random() * 20 + 5}px`;
+                        bubble.style.height = bubble.style.width;
+                        bubble.style.animationDuration = `${Math.random() * 10 + 5}s`;
+                        bubble.style.animationDelay = `${Math.random() * 5}s`;
+                        oceanBackground.appendChild(bubble);
+                    }
+                }
+            }
+
+            // Инициализация всех функций
+            burgerMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            navOverlay.addEventListener('click', function() {
+                toggleMenu();
+            });
+
+            document.addEventListener('click', function(event) {
+                if (mainNav.classList.contains('active') && 
+                    !event.target.closest('nav') && 
+                    !event.target.closest('.burger-menu')) {
+                    toggleMenu();
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && mainNav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+
+            // Обработчик скролла
+            window.addEventListener('scroll', handleScrollAnimation);
+            
+            // Инициализация
+            setTimeout(handleScrollAnimation, 300);
+            createBubbles();
+            setupFlipCards();
+        });
+    </script>
+</body>
+</html>

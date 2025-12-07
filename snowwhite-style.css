@@ -1,0 +1,1620 @@
+/* ===== ЦВЕТОВАЯ ГАММА БЕЛОСНЕЖКИ ===== */
+:root {
+    /* Основные цвета */
+    --snow-white: #fffaf0;
+    --snow-blue: #87CEEB;
+    --snow-red: #FF6B6B;
+    --snow-yellow: #FFD700;
+    --snow-dark-blue: #4682B4;
+    --snow-light-blue: #E6F3FF;
+    
+    /* Градиенты */
+    --gradient-blue: linear-gradient(135deg, var(--snow-blue) 0%, var(--snow-dark-blue) 100%);
+    --gradient-red-blue: linear-gradient(135deg, var(--snow-red) 0%, var(--snow-dark-blue) 100%);
+    --gradient-light: linear-gradient(135deg, var(--snow-light-blue) 0%, #ffffff 100%);
+    
+    /* Тени */
+    --shadow-md: 0 4px 15px rgba(135, 206, 235, 0.2);
+    --shadow-lg: 0 8px 25px rgba(135, 206, 235, 0.3);
+    --shadow-hover: 0 10px 30px rgba(135, 206, 235, 0.4);
+    
+    /* Текст */
+    --text-primary: #2C3E50;
+    --text-secondary: #5D6D7E;
+    --text-light: #ffffff;
+    
+    /* Границы */
+    --border-light: #D5D8DC;
+    --border-blue: rgba(135, 206, 235, 0.3);
+    
+    /* Размеры */
+    --radius-sm: 8px;
+    --radius-md: 15px;
+    --radius-lg: 25px;
+    --radius-round: 50%;
+    
+    /* Переходы */
+    --transition-normal: 0.3s ease;
+}
+
+/* ===== ОСНОВНЫЕ СТИЛИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--gradient-light);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Снежинки */
+.snowflake {
+    position: fixed;
+    top: -20px;
+    color: var(--snow-blue);
+    font-size: 14px;
+    animation: snowFall linear forwards;
+    z-index: 1000;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.6;
+}
+
+@keyframes snowFall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ===== ШАПКА САЙТА ===== */
+.main-header {
+    background: var(--gradient-blue);
+    padding: 0;
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    border-bottom: 3px solid var(--snow-yellow);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: var(--text-light);
+    gap: 12px;
+    transition: var(--transition-normal);
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+}
+
+.logo img {
+    height: 45px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-normal);
+    border: 2px solid var(--text-light);
+}
+
+.logo:hover img {
+    transform: rotate(-5deg) scale(1.05);
+    border-color: var(--snow-yellow);
+}
+
+/* Навигация */
+.nav-desktop {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-desktop a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-lg);
+    transition: var(--transition-normal);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-desktop a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+/* Бургер-меню */
+.burger-menu {
+    width: 32px;
+    height: 26px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.burger-menu span {
+    width: 100%;
+    height: 4px;
+    background: var(--text-light);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-normal);
+    transform-origin: center;
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+    background: var(--snow-yellow);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+    background: var(--snow-yellow);
+}
+
+/* Мобильное меню */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background: var(--gradient-blue);
+    padding: 0;
+    transition: right 0.4s ease;
+    z-index: 1099;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.mobile-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.mobile-logo img {
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--text-light);
+}
+
+.menu-close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-round);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    color: var(--text-light);
+    font-size: 1.3rem;
+}
+
+.menu-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+    color: var(--snow-yellow);
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 1.5rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition-normal);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.mobile-menu a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(8px);
+    border-color: var(--snow-yellow);
+}
+
+/* Оверлей */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+    z-index: 1090;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.snowwhite-main {
+    padding: 2rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 80px - 100px);
+}
+
+/* Героическая секция */
+.hero {
+    background: linear-gradient(135deg, 
+        rgba(135, 206, 235, 0.15) 0%, 
+        rgba(255, 182, 193, 0.1) 50%, 
+        rgba(255, 215, 0, 0.05) 100%);
+    border-radius: var(--radius-md);
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    border: 3px solid transparent;
+    border-image: linear-gradient(135deg, var(--snow-blue), var(--snow-red), var(--snow-yellow)) 1;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--snow-dark-blue);
+    margin-bottom: 1rem;
+    font-family: 'Crimson Text', serif;
+    font-weight: 800;
+}
+
+.hero .subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--snow-dark-blue);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.hero-image {
+    max-width: 500px;
+    margin: 2rem auto;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 8px solid var(--snow-white);
+    transition: var(--transition-normal);
+}
+
+.hero-image:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--snow-yellow);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.1);
+}
+
+/* Общие стили секций */
+section {
+    background: var(--snow-white);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        var(--snow-blue) 0%, 
+        var(--snow-red) 50%, 
+        var(--snow-yellow) 100%);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+section:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--snow-blue);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--snow-dark-blue);
+    margin-bottom: 1.5rem;
+    position: relative;
+    font-family: 'Crimson Text', serif;
+    font-weight: 700;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--snow-blue), var(--snow-red));
+    border-radius: 3px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* ===== СЕКЦИЯ ОПИСАНИЯ ===== */
+.description-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.appearance-block,
+.character-block {
+    background: var(--snow-white);
+    padding: 2.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-blue);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.appearance-block:hover,
+.character-block:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--snow-blue);
+}
+
+.appearance-block h3,
+.character-block h3 {
+    color: var(--snow-dark-blue);
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.appearance-block h3 i {
+    color: var(--snow-blue);
+}
+
+.character-block h3 i {
+    color: var(--snow-red);
+}
+
+.appearance-block p,
+.character-block p {
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* ===== СЕКЦИЯ ИСТОРИИ ===== */
+/* ===== СЕКЦИЯ ИСТОРИИ ===== */
+.history-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.1);
+    border: 1px solid #e3f2fd;
+}
+
+.history-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.history-block {
+    margin-bottom: 1.8rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid #87CEEB;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.history-block:hover {
+    transform: translateX(5px);
+    border-left-color: #FF6B6B;
+}
+
+.history-block h3 {
+    color: #4682B4;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Crimson Text', serif;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.history-block h3 i {
+    color: #FF6B6B;
+}
+
+.history-block p {
+    color: #2C3E50;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.history-summary {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 2px dashed #87CEEB;
+}
+
+.summary-box {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e3f2fd;
+    box-shadow: 0 2px 6px rgba(135, 206, 235, 0.1);
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.summary-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(135, 206, 235, 0.2);
+    border-color: #87CEEB;
+}
+
+.summary-box i {
+    color: #87CEEB;
+    font-size: 1.2rem;
+}
+
+.summary-box span {
+    color: #2C3E50;
+    font-size: 0.95rem;
+}
+
+.summary-box strong {
+    color: #4682B4;
+    font-weight: 600;
+}
+
+/* Секция с биографией */
+.biography-section {
+    background: white;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.1);
+    border: 1px solid #e3f2fd;
+}
+
+.biography-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2C3E50;
+}
+
+.biography-text p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 768px) {
+    .biography-section {
+        padding: 1.5rem;
+    }
+    
+    .biography-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .biography-section {
+        padding: 1.2rem;
+    }
+    
+    .biography-text {
+        font-size: 0.95rem;
+    }
+}
+
+.detail-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(135, 206, 235, 0.1);
+    border: 1px solid rgba(135, 206, 235, 0.3);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--snow-dark-blue);
+    transition: var(--transition-normal);
+    font-weight: 500;
+}
+
+.detail-tag:hover {
+    background: rgba(135, 206, 235, 0.2);
+    border-color: var(--snow-blue);
+    transform: translateY(-2px);
+}
+
+.detail-tag i {
+    font-size: 0.9rem;
+    color: var(--snow-blue);
+}
+
+/* Статистика внизу */
+.history-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 2px dashed var(--border-blue);
+}
+
+.summary-card {
+    background: var(--snow-white);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: var(--transition-normal);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.summary-card.animated {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--snow-blue);
+    box-shadow: var(--shadow-lg);
+}
+
+.summary-icon {
+    font-size: 3rem;
+    color: var(--snow-blue);
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    transition: var(--transition-normal);
+}
+
+.summary-card:hover .summary-icon {
+    color: var(--snow-red);
+    transform: scale(1.2) rotate(5deg);
+}
+
+.summary-card h3 {
+    color: var(--snow-dark-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+}
+
+.summary-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ===== СЕКЦИЯ ПЕРСОНАЖЕЙ ===== */
+/* Исправления для секции главных персонажей */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.character-card {
+    background: var(--snow-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    border: 1px solid var(--border-light);
+    opacity: 0;
+    transform: translateY(20px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.character-card.animated {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.character-image {
+    height: 280px; /* Увеличил высоту */
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%; /* Центрирование по вертикали */
+    transition: transform 0.6s ease;
+}
+
+.character-card:hover .character-image img {
+    transform: scale(1.08);
+}
+
+/* Улучшение для конкретных персонажей */
+.character-card:nth-child(1) .character-image img { /* Принц */
+    object-position: center 20%;
+}
+
+.character-card:nth-child(2) .character-image img { /* Королева */
+    object-position: center 40%;
+}
+
+.character-card:nth-child(3) .character-image img { /* Король */
+    object-position: center 30%;
+}
+
+/* Увеличение области изображения при наведении */
+.character-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        transparent 70%, 
+        rgba(0, 0, 0, 0.1) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.character-info {
+    padding: 1.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.character-info h3 {
+    color: var(--snow-dark-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    min-height: 3.5rem;
+}
+
+.character-info h3 i {
+    color: var(--snow-yellow);
+    font-size: 1.2rem;
+}
+
+.character-info p {
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    text-align: justify;
+    flex-grow: 1;
+}
+
+/* Адаптивность для изображений персонажей */
+@media screen and (max-width: 992px) {
+    .characters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .character-image {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .characters-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .character-image {
+        height: 240px;
+    }
+    
+    .character-info {
+        padding: 1.5rem;
+    }
+    
+    .character-info h3 {
+        font-size: 1.3rem;
+        min-height: 3rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .character-image {
+        height: 220px;
+    }
+    
+    .character-info {
+        padding: 1.2rem;
+    }
+    
+    .character-info h3 {
+        font-size: 1.2rem;
+        min-height: 2.8rem;
+    }
+    
+    .character-info p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .character-image {
+        height: 200px;
+    }
+}
+
+/* ===== СЕКЦИЯ ФАКТОВ ===== */
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.fact-card {
+    background: var(--snow-white);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: var(--transition-normal);
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.fact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--snow-blue), var(--snow-red));
+    transition: var(--transition-normal);
+}
+
+.fact-card.animated {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--snow-blue);
+    box-shadow: var(--shadow-lg);
+}
+
+.fact-card:hover::before {
+    height: 6px;
+}
+
+.fact-icon {
+    font-size: 3rem;
+    color: var(--snow-blue);
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    transition: var(--transition-normal);
+}
+
+.fact-card:hover .fact-icon {
+    color: var(--snow-red);
+    transform: scale(1.2);
+}
+
+.fact-card h3 {
+    color: var(--snow-dark-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+}
+
+.fact-card p {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* ===== СЕКЦИЯ ГНОМОВ ===== */
+.dwarfs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dwarf-card {
+    background: var(--snow-white);
+    padding: 1.8rem 1.5rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: var(--transition-normal);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.dwarf-card.animated {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.dwarf-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--snow-blue);
+    box-shadow: var(--shadow-lg);
+}
+
+.dwarf-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: var(--radius-round);
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 3px solid var(--snow-blue);
+    position: relative;
+    transition: var(--transition-normal);
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+}
+
+.dwarf-card:hover .dwarf-avatar {
+    border-color: var(--snow-red);
+    transform: scale(1.1);
+}
+
+.dwarf-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dwarf-card h3 {
+    color: var(--snow-dark-blue);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Crimson Text', serif;
+    transition: var(--transition-normal);
+    min-height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dwarf-card:hover h3 {
+    color: var(--snow-red);
+}
+
+.dwarf-card p {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ===== СЕКЦИЯ ФИЛЬМОВ ===== */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.movie-card {
+    background: var(--snow-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    border: 1px solid var(--border-light);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.movie-card.animated {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--snow-blue);
+}
+
+.movie-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.movie-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.movie-card:hover .movie-image img {
+    transform: scale(1.1);
+}
+
+.movie-info {
+    padding: 2rem;
+}
+
+.movie-info h3 {
+    color: var(--snow-dark-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+    line-height: 1.4;
+    min-height: 4.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Детали фильмов */
+.movie-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.detail {
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    line-height: 1.5;
+}
+
+.detail strong {
+    color: var(--snow-dark-blue);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.detail i {
+    color: var(--snow-red);
+    font-size: 1rem;
+    min-width: 18px;
+}
+
+/* Для длинных текстов */
+.detail:has(strong:contains("Режиссеры")) {
+    grid-column: 1 / -1;
+}
+
+.detail:has(strong:contains("Озвучка")) {
+    grid-column: 1 / -1;
+}
+
+.detail:has(strong:contains("В ролях")) {
+    grid-column: 1 / -1;
+}
+
+.movie-info p {
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-top: 1rem;
+}
+
+/* ===== СЕКЦИЯ ПРИНЦЕСС ===== */
+.princess-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.princess-item {
+    background: var(--snow-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    border: 1px solid var(--border-light);
+    opacity: 0;
+    transform: translateY(20px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.princess-item.animated {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.princess-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--snow-blue);
+}
+
+.princess-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8f8f8 0%, #e8f4ff 100%);
+}
+
+.princess-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    object-position: center top;
+}
+
+.princess-item:hover .princess-image img {
+    transform: scale(1.1);
+}
+
+.princess-info {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.princess-info h3 {
+    color: var(--snow-dark-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Crimson Text', serif;
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.princess-info p {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    flex-grow: 1;
+    text-align: justify;
+}
+
+.princess-button-container {
+    margin-top: auto;
+    padding-top: 1.5rem;
+}
+
+.princess-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    color: var(--snow-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-normal);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-lg);
+    background: rgba(135, 206, 235, 0.1);
+    border: 2px solid var(--snow-blue);
+    font-size: 1rem;
+    min-height: 45px;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.princess-link:hover {
+    background: var(--gradient-blue);
+    color: var(--text-light);
+    transform: translateY(-3px);
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
+}
+
+.princess-link i {
+    transition: transform var(--transition-normal);
+}
+
+.princess-link:hover i {
+    transform: translateX(5px);
+}
+
+/* ===== ПОДВАЛ ===== */
+footer {
+    background: var(--gradient-blue);
+    color: var(--text-light);
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--snow-yellow), transparent);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+footer p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+footer address {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+footer address strong {
+    color: var(--snow-yellow);
+    font-weight: 700;
+}
+
+footer a {
+    color: var(--snow-yellow);
+    text-decoration: none;
+    transition: var(--transition-normal);
+    position: relative;
+    padding: 0 0.2rem;
+}
+
+footer a:hover {
+    color: var(--text-light);
+}
+
+/* ===== КНОПКА ПРОКРУТКИ ВВЕРХ ===== */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-blue);
+    color: var(--text-light);
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-round);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+    z-index: 1200;
+    border: 2px solid var(--snow-white);
+    transform: translateY(20px);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: var(--shadow-hover);
+    background: var(--gradient-red-blue);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media screen and (max-width: 768px) {
+    /* Шапка */
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-desktop {
+        display: none !important;
+    }
+    
+    .header-container {
+        padding: 0 1rem;
+    }
+    
+    .logo {
+        font-size: 1.1rem;
+        gap: 10px;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
+    /* Основной контент */
+    .snowwhite-main {
+        padding: 1rem;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    section {
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Сетки */
+    .description-content,
+    .characters-grid,
+    .facts-grid,
+    .movies-grid,
+    .princess-list {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .dwarfs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .history-summary {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Карточки */
+    .appearance-block,
+    .character-block,
+    .history-content,
+    .character-info,
+    .movie-info,
+    .princess-info {
+        padding: 1.5rem;
+    }
+    
+    .hero-image {
+        max-width: 350px;
+        margin: 1.5rem auto;
+    }
+    
+    .movie-details {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    /* Подвал */
+    footer {
+        padding: 2rem 1.5rem;
+        margin-top: 3rem;
+    }
+    
+    footer p {
+        font-size: 1rem;
+    }
+    
+    footer address {
+        font-size: 0.95rem;
+    }
+    
+    /* Кнопка вверх */
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .snowwhite-main {
+        padding: 0.5rem;
+    }
+    
+    .hero {
+        padding: 1.5rem 1rem;
+        border-radius: var(--radius-md);
+    }
+    
+    section {
+        padding: 1.5rem 1rem;
+        border-radius: var(--radius-md);
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .description-content,
+    .characters-grid,
+    .facts-grid,
+    .movies-grid,
+    .princess-list {
+        gap: 1.5rem;
+    }
+    
+    .dwarfs-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .hero-image {
+        max-width: 280px;
+        margin: 1rem auto;
+        border: 5px solid var(--snow-white);
+    }
+    
+    .dwarf-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .princess-link {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+        max-width: 180px;
+    }
+    
+    .history-timeline::before {
+        left: 20px;
+    }
+    
+    .history-card {
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+    
+    .history-card::before {
+        left: -40px;
+        width: 14px;
+        height: 14px;
+    }
+    
+    .history-content::before {
+        left: -7px !important;
+        width: 14px;
+        height: 14px;
+    }
+    
+    .history-year {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .history-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .detail-tag {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    footer {
+        padding: 1.5rem 1rem;
+    }
+    
+    .scroll-top {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
